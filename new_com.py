@@ -78,12 +78,37 @@ elif u'\ufb05' in exText and u'\ufb05' not in jsText:
     pass
 
 
+#Making mapping for each character in _ex file
+ 
+qbfile = open("" + filename_ex,"r")
+b = qbfile.read()
+#print b
+
+qbfile.close()
+
+count = 0
+#mapping for each characters in the _ex file
+mappings = {}
+
+#for loop for mapping each of the character in _ex file to an integer
+for letter in b:
+    mappings[count] = b[count]
+    count = count + 1  
+
+
+print mappings[1] + "&&&"
+
+
 # ** Preprocess the text **
 # Remove spaces: There is a mismatch between whitespaces in both files
 exText = "".join(exText.split())
 jsText = "".join(jsText.split())
 
-
+def method1(list,search_name):
+     for num,name in list.iteritems():
+             if name == search_name:
+                   return num
+  
 
 # Size of files
 print("Pre Processed")
@@ -98,6 +123,13 @@ for exChar, jsChar in zip(exText,jsText):
         if (isASCII(exChar) and isASCII(jsChar)) :
             print(exChar + " " + jsChar + ' Check')
         else:
-            print(exChar + " " + jsChar)
+            print(exChar + " " + jsChar + method1(mappings, exChar) )  #Trying to print the position of the character exChar here.
+               #print mappings.keys()[mappings.values().index(exChar)]
+                  
+                # for num, char in mappings.iteritems():    
+                 # if (char == exChar):
+                   ##b[num] = jsChar
+                  # print num
+                 
         pass
 pass

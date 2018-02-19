@@ -104,11 +104,13 @@ print mappings[1] + "&&&"
 exText = "".join(exText.split())
 jsText = "".join(jsText.split())
 
-def method1(list,search_name):
-     for num,name in list.iteritems():
-             if name == search_name:
-                   return num
+#def method1(list,search_name):
+ #    for num,name in list.iteritems():
+  #           if name == search_name:
+   #                return num
   
+
+t = 0
 
 # Size of files
 print("Pre Processed")
@@ -123,9 +125,13 @@ for exChar, jsChar in zip(exText,jsText):
         if (isASCII(exChar) and isASCII(jsChar)) :
             print(exChar + " " + jsChar + ' Check')
         else:
-            print(exChar + " " + jsChar + method1(mappings, exChar) )  #Trying to print the position of the character exChar here.
+            print(exChar + " " + jsChar )  #Trying to print the position of the character exChar here.
                #print mappings.keys()[mappings.values().index(exChar)]
-                  
+            for num,char in mappings.iteritems():
+                         #if char == exChar:
+                t = t +  num
+                print num, char
+ 
                 # for num, char in mappings.iteritems():    
                  # if (char == exChar):
                    ##b[num] = jsChar

@@ -128,10 +128,14 @@ for exChar, jsChar in zip(exText,jsText):
             print(exChar + " " + jsChar )  #Trying to print the position of the character exChar here.
                #print mappings.keys()[mappings.values().index(exChar)]
             for num,char in mappings.iteritems():
-                         #if char == exChar:
-                t = t +  num
-                print num, char
- 
+                if char == exChar:
+                    mappings[num] = jsChar
+                    t = t+1
+                    print mappings[num]
+                    print t
+                #t = t +  num
+                #print num, char
+                    
                 # for num, char in mappings.iteritems():    
                  # if (char == exChar):
                    ##b[num] = jsChar
@@ -139,3 +143,11 @@ for exChar, jsChar in zip(exText,jsText):
                  
         pass
 pass
+
+modify = ""
+xh = 0
+## Now constructing the modified html file
+for t in range(0, count):
+	modify= modify + mappings[t]
+
+print modify
